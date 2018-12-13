@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>According to US!!!</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('Roboto-ThinItalic-webfont.eot');
+            src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('Roboto-ThinItalic-webfont.woff') format('woff'),
+                 url('Roboto-ThinItalic-webfont.ttf') format('truetype'),
+                 url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg'); (under the Apache Software License). 
+            font-weight: 200;
+            font-style: italic;
+        }
+        
+        body { 
+            background-image: url('./images/background1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center bottom; 
+        	font-family: Arial, Helvetica, sans-serif;
+        	color:#F0FFFF;
+        	background-color: #F0FFFF ;
+        	align: center;
+        }
+        
+        
+        .formRight select {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0 0 10px #E8E8E8 inset;
+            height: 40px;
+            margin: 0 0 0 25px;
+            padding: 10px;
+            width: 110px;
+        }
+        
+        .myButton {
+        	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
+        	background:-moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-ms-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+        	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f',GradientType=0);
+        	background-color:#f24537;
+        	-moz-border-radius:28px;
+        	-webkit-border-radius:28px;
+        	border-radius:28px;
+        	border:1px solid #d02718;
+        	display:inline-block;
+        	cursor:pointer;
+        	color:#ffffff;
+        	font-family:Arial;
+        	font-size:17px;
+        	padding:16px 31px;
+        	text-decoration:none;
+        	text-shadow:0px 1px 0px #810e05;
+        }
+        .myButton:hover {
+        	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
+        	background:-moz-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:-webkit-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:-o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:-ms-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+        	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
+        	background-color:#c62d1f;
+        }
+        .myButton:active {
+        	position:relative;
+        	top:1px;
+        }
+        
+        box2 {
+         height: 150px;
+         width: 150px;
+        }
+		
+		.ChoseEvent {
+		    background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
+        	background:-moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-ms-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+        	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f',GradientType=0);
+        	background-color:#f24537;
+        	-moz-border-radius:28px;
+        	-webkit-border-radius:28px;
+        	border-radius:28px;
+        	border:1px solid #d02718;
+        	display:inline-block;
+        	cursor:pointer;
+        	color:#ffffff;
+        	font-family:Arial;
+        	font-size:17px;
+        	padding:16px 31px;
+        	text-decoration:none;
+        	text-shadow:0px 1px 0px #810e05;
+		}
+		.ChoseEventOption {
+		    font-family:Arial;
+        	font-size:17px;
+        	padding:10px 20px;
+			text-decoration:none;
+        	text-shadow:0px 1px 0px #810e05;
+			height:40px;
+			width:150px;
+			color:maroon;
+		}
+    </style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="getLocation()">
+    <center>
+        <h1 style='color:maroon'>According to Us !!!</h1>
+
+        <p align='center' id="demo" style='font-size:8px;color:maroon'></p>
+
+        <p class="formRight" align='center' style='color:maroon'>
+
+            Join this event now:
+            <br/>
+            <form action="./bin/showEvent.php?" method="get" enctype="text/plain" id="ChoseEvent" class="ChoseEvent" >
+                <input type="hidden" name="longitude" value="" id="longitude">
+                <input type="hidden" name="latitude" value="" id="latitude">
+				<input type="hidden" name="date" value="" id="date">
+				<input type="hidden" name="imei" value="" id="imei">
+				<input type="hidden" name="guid" value="" id="guid">
+                <select   class="ChoseEventOption"  id="event"  name="event" size="4" onchange="this.form.submit()">
+        <option value="32424" class="ChoseEventOption">Yellow vest</option>
+        <option value="26534" class="ChoseEventOption">Red Shirt</option>
+    </select>
+            </form>
+            <br/><br/>
+           <a href="vote.html" id="vote" class="myButton">Vote</a>&nbsp;&nbsp;<a href="./bin/addEvent.php" id="aAddevent"  class="myButton">Add event &#x1f512; </a>&nbsp;&nbsp;<a href="about.html" id="about"  class="myButton">About </a>
+    </center>
+    <script>
+        var x = document.getElementById("demo");
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+          
+        }
+        
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          " | Longitude: " + position.coords.longitude;
+		  
+		  oFormObject = document.forms['ChoseEvent'];
+		  oFormObject.elements["longitude"].value = position.coords.longitude;
+		  oFormObject.elements["latitude"].value =  position.coords.latitude;
+		  oFormObject.elements["date"].value  = Date().toLocaleString();
+		  document.getElementById("aAddevent").href="addEvent.php?" + "latitude=" + position.coords.latitude + 
+          "&longitude=" + position.coords.longitude + "&guid=" + checkGuidCookie() +"&date=" + Date().toLocaleString();
+		  oFormObject.elements["guid"].value  = checkGuidCookie();
+		  
+        }
+		
+		function uuidv4() {
+		  return ([1e7]+-1e3+-4e3+-8e3+-1e11).replace(/[018]/g, c =>
+			(c ^ crypto.getRandomValues(new Uint8Array(1))[0] & 15 >> c / 4).toString(16)
+		  )
+		}
+		
+		function setCookie(cname, cvalue, exdays) {
+		  var d = new Date();
+		  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+		  var expires = "expires="+ d.toUTCString();
+		  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+		}
+		
+		function getCookie(cname) {
+		  var name = cname + "=";
+		  var decodedCookie = decodeURIComponent(document.cookie);
+		  var ca = decodedCookie.split(';');
+		  for(var i = 0; i <ca.length; i++) {
+			var c = ca[i];
+			while (c.charAt(0) == ' ') {
+			  c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+			  return c.substring(name.length, c.length);
+			}
+		  }
+		  return "";
+		}
+		
+		function checkGuidCookie() {
+		  var username = getCookie("guid");
+		  if (username != "") {
+		  /* alert("Welcome again " + username); */
+		  } else 
+			{
+			  username = uuidv4(); 
+			  setCookie("guid", username, 365);		   
+			}
+		  return username;
+		}
+		/* console.log(checkGuidCookie()); */
+    </script>
+</body>
+</html>

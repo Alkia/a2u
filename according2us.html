@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>According to US!</title>
+    <style>
+        @font-face {
+            font-family: 'Roboto';
+            src: url('Roboto-ThinItalic-webfont.eot');
+            src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+                 url('Roboto-ThinItalic-webfont.woff') format('woff'),
+                 url('Roboto-ThinItalic-webfont.ttf') format('truetype'),
+                 url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg'); (under the Apache Software License). 
+            font-weight: 200;
+            font-style: italic;
+        }
+        
+        body { 
+            background-image: url('./images/background1.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center bottom; 
+        	font-family: Arial, Helvetica, sans-serif;
+        	color:#F0FFFF;
+        	background-color: #F0FFFF ;
+        	align: center;
+        }
+        
+        
+        .formRight select {
+            background: none repeat scroll 0 0 #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 10px 10px 10px 10px;
+            box-shadow: 0 0 10px #E8E8E8 inset;
+            height: 40px;
+            margin: 0 0 0 25px;
+            padding: 10px;
+            width: 110px;
+        }
+        
+        .myButton {
+        	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f24537), color-stop(1, #c62d1f));
+        	background:-moz-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-webkit-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-o-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:-ms-linear-gradient(top, #f24537 5%, #c62d1f 100%);
+        	background:linear-gradient(to bottom, #f24537 5%, #c62d1f 100%);
+        	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f24537', endColorstr='#c62d1f',GradientType=0);
+        	background-color:#f24537;
+        	-moz-border-radius:28px;
+        	-webkit-border-radius:28px;
+        	border-radius:28px;
+        	border:1px solid #d02718;
+        	display:inline-block;
+        	cursor:pointer;
+        	color:#ffffff;
+        	font-family:Arial;
+        	font-size:17px;
+        	padding:16px 31px;
+        	text-decoration:none;
+        	text-shadow:0px 1px 0px #810e05;
+        }
+        .myButton:hover {
+        	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #c62d1f), color-stop(1, #f24537));
+        	background:-moz-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:-webkit-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:-o-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:-ms-linear-gradient(top, #c62d1f 5%, #f24537 100%);
+        	background:linear-gradient(to bottom, #c62d1f 5%, #f24537 100%);
+        	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#c62d1f', endColorstr='#f24537',GradientType=0);
+        	background-color:#c62d1f;
+        }
+        .myButton:active {
+        	position:relative;
+        	top:1px;
+        }
+        
+        box2 {
+         height: 150px;
+         width: 150px;
+        }
+    </style>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+</head>
+
+<body onload="getLocation()">
+    <center>
+        <h1 style='color:maroon'>According to Us !!</h1>
+
+        <p align='center' id="demo" style='font-size:8px;color:maroon'></p>
+
+        <p class="formRight" align='center' style='color:maroon'>
+
+            Finding your event:
+            <br/>
+            <form action="showEvent.php?" method="post" enctype="text/plain">
+                <input type="hidden" name="longitude" value="" id="longitude">
+                <input type="hidden" name="latitude" value="" id="latitude">
+                <select style='height:100px;width:150px;font-size:10px;color:maroon' id="leadType" class="box2" name="lead_type" size="4" onchange="this.form.submit()">
+        <option value="32424">Yellow shirt</option>
+        <option value="26534">Red Shirt</option>
+        <option value="65565">Add Event          </option>
+    </select>
+            </form>
+            <br/><br/>
+            <a id="aAddevent" href="#" class="myButton">Add event <i class='fas fa-lock'></i></a>
+
+    </center>
+    <script>
+        var x = document.getElementById("demo");
+        
+        function addGPSdata(position) {
+            document.getElementById("aAddevent").href = "/add.php?" + "lat=" + position.coords.latitude + 
+          "&lng=" + position.coords.longitude + "&";
+		  document.getElementById("longitude")=position.coords.longitude;
+		  document.getElementById("latitude")=position.coords.latitude;
+		  
+        }
+        
+        function getLocation() {
+          if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(showPosition);
+          } else { 
+            x.innerHTML = "Geolocation is not supported by this browser.";
+          }
+          
+        }
+        
+        function showPosition(position) {
+          x.innerHTML = "Latitude: " + position.coords.latitude + 
+          " | Longitude: " + position.coords.longitude;
+          addGPSdata(position);
+        }
+    </script>
+</body>
+
+</html>
